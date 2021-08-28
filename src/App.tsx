@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource theme-ui */
+import { FC } from 'react'
+import { Theme, ThemeProvider } from 'theme-ui'
+import baseTheme from '@theme-ui/preset-base'
+import Weather from '@pages/Weather'
+import { WeatherProvider } from '@hooks/useWeather'
+import { ErrorProvider } from '@hooks/useErrors'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const theme: Theme = {
+  ...baseTheme,
+  breakpoints: ['50rem', '60rem'],
+  colors: {
+    ...baseTheme?.colors,
+    error: '#b80000',
+  },
 }
 
-export default App;
+const App: FC = () => (
+  <ThemeProvider theme={theme}>
+    <ErrorProvider>
+      <WeatherProvider>
+        <Weather />
+      </WeatherProvider>
+    </ErrorProvider>
+  </ThemeProvider>
+)
+
+export default App

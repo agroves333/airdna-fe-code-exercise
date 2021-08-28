@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# AirDNA Front End Code Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hey there! We'd like you to work on a simple React app that fetches the weather forecast based on a user's location search input and displays the forecast in the UI. The API doesn't support CORS, so you'll find it [proxied](https://create-react-app.dev/docs/proxying-api-requests-in-development) through create-react-app. You can hit the API by making a request to `/api/...`.
+The API you'll be using can be referenced here: [MetaWeather](https://www.metaweather.com/api/)
 
-## Available Scripts
+There are 2 endpoints you'll need:
 
-In the project directory, you can run:
+- **Location Search** - Finds a location from a search string
+  - GET `/api/location/search/?query=${query}`
+- **Location** - Returns location information and a 5-day forecast from a location ID
+  - GET `/api/location/${locationId}/`
 
-### `yarn start`
+The temperature comes back from the API in celsius. You'll find a conversion function in `src/utils/conversions`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Please don't spend more than 2-3 hours. We're looking for how you approach problems, architect a feature, and write production-grade code. The UI should be responsive and use modern CSS practices, but doesn't need to be visually impressive. Some priorities:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Working location search and fetching of weather data
+2. Handle errors within the code and UI (for example, search returns no results)
+3. Extended forecast displayed in UI
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+When you have completed this please push to a repo on Github (or Gitlab) and either send us a public link or add `ndstephens` as a collaborator if you'd rather make the repository private.
